@@ -1,8 +1,8 @@
-## Welcome to GitHub Pages
+## About Me
 
-You can use the [editor on GitHub](https://github.com/cam-br0wn/cam-br0wn.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+🎓 I'm currently an undergraduate Computer Engineering major at [Northwestern University](https://www.mccormick.northwestern.edu/electrical-computer/academics/undergraduate/computer-engineering/).
+:baseball: I previously played Division III baseball at Carleton College
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
 ### Markdown
 
