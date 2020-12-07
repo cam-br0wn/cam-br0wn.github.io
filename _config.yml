@@ -1,2 +1,17 @@
 theme: jekyll-theme-minimal
 title: Cameron Brown
+
+footer:
+  content: '&copy; Cameron Brown. All rights reserved. Powered by Jekyll.'
+  has_social: true
+  social_links:
+    - label: GitHub
+      url: 'https://github.com/cam-br0wn'
+      style: icon
+      icon_class: fa-github
+      new_window: true
+    - label: LinkedIn
+      url: 'https://www.linkedin.com/in/cameronkbrown/'
+      style: icon
+      icon_class: fa-linkedin
+      new_window: true
