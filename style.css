@@ -23,7 +23,6 @@ body {
     background: var(--dark);
     color: var(--text-primary);
     overflow-x: hidden;
-    cursor: none;
 }
 
 .container {
