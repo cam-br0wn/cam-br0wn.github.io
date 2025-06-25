@@ -1,9 +1,3 @@
-// Custom Cursor
-document.addEventListener('mousemove', (e) => {
-    const cursor = document.querySelector('.cursor-glow');
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-});
 
 // Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -47,13 +41,22 @@ window.addEventListener('scroll', updateActiveNav);
 // Parallax Effect
 function initParallax() {
     const circuitPattern = document.querySelector('.circuit-pattern');
+    let ticking = false;
     
-    window.addEventListener('scroll', () => {
+    function updateParallax() {
         const scrolled = window.pageYOffset;
         const parallaxSpeed = 0.5;
         
         if (circuitPattern) {
             circuitPattern.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+        }
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
         }
     });
 }
@@ -104,12 +107,10 @@ function initChipInteraction() {
     if (chip) {
         chip.addEventListener('mouseenter', () => {
             chip.style.transform = 'scale(1.1) rotateY(15deg)';
-            chip.style.boxShadow = '0 0 100px rgba(0, 255, 136, 0.6), inset 0 0 100px rgba(0, 255, 136, 0.3)';
         });
         
         chip.addEventListener('mouseleave', () => {
             chip.style.transform = 'scale(1) rotateY(0deg)';
-            chip.style.boxShadow = '0 0 50px rgba(0, 255, 136, 0.3), inset 0 0 50px rgba(0, 255, 136, 0.1)';
         });
     }
 }
@@ -125,11 +126,9 @@ function initLogicGates() {
             
             // Add pulse effect
             gate.style.transform = 'scale(1.2)';
-            gate.style.boxShadow = '0 0 30px rgba(0, 102, 255, 0.8)';
             
             setTimeout(() => {
                 gate.style.transform = '';
-                gate.style.boxShadow = '';
             }, 200);
             
             // Simulate logic operation
