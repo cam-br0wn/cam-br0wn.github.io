@@ -29,7 +29,12 @@
     box-sizing: border-box;
 }
 
-html, body {
+html {
+    height: 100%;
+    font-size: clamp(1rem, 1.2vw, 1.25rem);
+}
+
+body {
     height: 100%;
 }
 
@@ -49,9 +54,9 @@ body {
    ---------------------------------------- */
 
 .page {
-    max-width: 720px;
+    max-width: 50rem;
     width: 100%;
-    padding: 2rem 3rem;
+    padding: 2rem 4rem;
 }
 
 .page hr {
