@@ -111,7 +111,6 @@ body::after {
     text-transform: uppercase;
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
-    animation: heroFade 0.6s ease-out 0.1s both;
 }
 
 .hero-name {
@@ -122,34 +121,16 @@ body::after {
     color: var(--text);
     letter-spacing: -0.02em;
     margin-bottom: 2rem;
-    animation: heroFade 0.6s ease-out 0.25s both;
 }
 
-.hero-name span,
-.hero-name em {
+.hero-name span {
     display: block;
-}
-
-.hero-name em {
-    font-style: italic;
 }
 
 .hero-credentials {
     font-size: 1rem;
     color: var(--text-secondary);
     line-height: 1.5;
-    animation: heroFade 0.6s ease-out 0.4s both;
-}
-
-@keyframes heroFade {
-    from {
-        opacity: 0;
-        transform: translateY(16px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* ----------------------------------------
@@ -163,7 +144,6 @@ body::after {
 
 .section-title {
     font-family: 'Instrument Serif', serif;
-    font-style: italic;
     font-size: 1.75rem;
     font-weight: 400;
     color: var(--text);
@@ -283,21 +263,6 @@ a.contact-row:hover .contact-value svg {
 .footer p {
     font-size: 0.8125rem;
     color: var(--text-muted);
-}
-
-/* ----------------------------------------
-   Fade-in animation for below-fold content
-   ---------------------------------------- */
-
-.fade-in {
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* ----------------------------------------
