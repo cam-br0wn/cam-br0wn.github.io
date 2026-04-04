@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Only — Cameron Brown</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        (function() {
+            var s = localStorage.getItem('theme');
+            var t = s || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+</head>
+<body>
+
+    <div class="toggle-wrap">
+        <span class="toggle-label">☀</span>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <span class="toggle-thumb"></span>
+        </button>
+        <span class="toggle-label">☾</span>
+    </div>
+
+    <main class="page">
+        <header>
+            <h1>Members Only</h1>
+            <p class="title"><a href="index.html" style="color: var(--accent); text-decoration: none;">&larr; Back</a></p>
+        </header>
+
+        <hr>
+
+        <section class="about" id="login-section">
+            <p style="margin-bottom: 1rem;">Enter the password to access this section.</p>
+            <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                <input type="password" id="password-input" placeholder="Password"
+                    style="font-family: inherit; font-size: 0.875rem; padding: 0.4rem 0.75rem;
+                    background: var(--toggle-track); color: var(--text); border: 1px solid var(--border);
+                    border-radius: 2px; outline: none; transition: border-color 0.2s ease;">
+                <button id="unlock-btn"
+                    style="font-family: inherit; font-size: 0.875rem; padding: 0.4rem 1rem;
+                    background: var(--accent); color: #fff; border: none; border-radius: 2px;
+                    cursor: pointer;">Unlock</button>
+            </div>
+            <p id="error-msg" style="color: #ff453a; font-size: 0.8125rem; margin-top: 0.5rem; display: none;">
+                Incorrect password.</p>
+        </section>
+
+        <section class="about" id="members-content" style="display: none;"></section>
+
+        <hr>
+
+        <footer class="bottom">
+            <p class="copy">&copy; 2025 Cameron Brown</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        var ENCRYPTED = "mt0r4UTtjE3YE4HBVWNkictEitLr9WthZCIxi3rD8nA6sIKl7gDdQRg9q6FJfYwXwInbE7sld7Ez3lEYEoINfPMj3XpNHaiAWhnhkal1dmYkUJzljuy4Sp+2IWguMfzgpcgRVrVuTVxT";
+
+        function b64ToBytes(b64) {
+            var bin = atob(b64);
+            var bytes = new Uint8Array(bin.length);
+            for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+            return bytes;
+        }
+
+        async function decrypt(password) {
+            var data = b64ToBytes(ENCRYPTED);
+            var salt = data.slice(0, 16);
+            var iv = data.slice(16, 28);
+            var ct = data.slice(28);
+
+            var keyMaterial = await crypto.subtle.importKey(
+                "raw", new TextEncoder().encode(password), "PBKDF2", false, ["deriveKey"]
+            );
+            var key = await crypto.subtle.deriveKey(
+                { name: "PBKDF2", salt: salt, iterations: 100000, hash: "SHA-256" },
+                keyMaterial,
+                { name: "AES-GCM", length: 256 },
+                false,
+                ["decrypt"]
+            );
+            var decrypted = await crypto.subtle.decrypt(
+                { name: "AES-GCM", iv: iv }, key, ct
+            );
+            return new TextDecoder().decode(decrypted);
+        }
+
+        async function unlock() {
+            var pw = document.getElementById("password-input").value;
+            try {
+                var html = await decrypt(pw);
+                document.getElementById("members-content").innerHTML = html;
+                document.getElementById("members-content").style.display = "block";
+                document.getElementById("login-section").style.display = "none";
+            } catch (e) {
+                document.getElementById("error-msg").style.display = "block";
+            }
+        }
+
+        document.getElementById("unlock-btn").addEventListener("click", unlock);
+        document.getElementById("password-input").addEventListener("keydown", function(e) {
+            if (e.key === "Enter") unlock();
+        });
+    </script>
+</body>
+</html>
