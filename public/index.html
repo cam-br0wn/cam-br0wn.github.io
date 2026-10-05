@@ -3,120 +3,44 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cameron Brown</title>
-<meta name="description" content="Cameron K. Brown. Senior Logic Design Engineer and SoC microarchitect at Ampere Computing, Portland, Oregon. MS Computer Engineering, Northwestern University.">
+<title>Cam Brown</title>
+<meta name="description" content="Cam Brown is an SoC microarchitect at Ampere Computing in Portland, Oregon.">
 <link rel="canonical" href="https://cambrown.io/">
 <link rel="icon" href="data:,">
 <style>
-:root{--bg:#fff;--ink:#1a1a1a;--muted:#666;--line:#e3e3e3;--link:#1d5c8f}
+:root{--bg:#fff;--ink:#1a1a1a;--muted:#6a6a6a;--line:#e4e4e4;--link:#1d5c8f}
 @media(prefers-color-scheme:dark){:root{--bg:#121414;--ink:#e8eae9;--muted:#9aa29f;--line:#2b3130;--link:#7bb6e8}}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
-main{max-width:680px;margin:0 auto;padding:56px 20px 72px}
-h1{font-size:34px;line-height:1.15;margin:0 0 6px;letter-spacing:-.01em}
-.role{margin:0 0 4px;font-size:19px}
-.where{margin:0 0 18px;color:var(--muted)}
-nav a{margin-right:18px}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.55 system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+main{max-width:620px;margin:0 auto;padding:72px 20px 80px}
+h1{font-size:30px;margin:0 0 24px;letter-spacing:-.01em}
+h2{font-size:16px;font-weight:600;color:var(--muted);margin:40px 0 10px}
+p{margin:0 0 16px}
 a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--line)}
 a:hover{border-bottom-color:var(--link)}
-section{border-top:1px solid var(--line);margin-top:36px;padding-top:28px}
-h2{font-size:15px;font-weight:600;color:var(--muted);margin:0 0 16px}
-h3{font-size:17px;margin:0;line-height:1.35}
-h3 span{font-weight:400;color:var(--muted)}
-.when{font-size:14px;color:var(--muted);margin:2px 0 6px}
-ul{margin:0 0 22px;padding-left:20px}
-li{margin-bottom:5px}
-article:last-child ul{margin-bottom:0}
-p{margin:0 0 10px}
-footer{max-width:680px;margin:0 auto;padding:0 20px 48px;font-size:14px;color:var(--muted)}
+nav{margin-top:44px;padding-top:20px;border-top:1px solid var(--line)}
+nav a{margin-right:20px}
 </style>
 </head>
 <body>
 <main>
-  <h1>Cameron K. Brown</h1>
-  <p class="role">Senior Logic Design Engineer, Ampere Computing</p>
-  <p class="where">Portland, Oregon</p>
+  <h1>Cam Brown</h1>
+
+  <p>I'm an SoC microarchitect at <a href="https://amperecomputing.com">Ampere Computing</a> in Portland, Oregon, where I'm a Senior Logic Design Engineer.</p>
+
+  <p>Most of my work is on the tools that take an architectural spec and turn it into a chip: integration flows that produce functionally and physically correct RTL, the floorplan that ships, and the power, timing, and area numbers the rest of the team plans around. I also own the CPU's SPR model.</p>
+
+  <h2>Background</h2>
+  <p>I joined Ampere in 2023 after interning there on the MMU of a custom core, and before that spent a year at SAS building test and triage automation for their machine learning platform.</p>
+  <p>I have an MS and a BS in Computer Engineering from Northwestern, with a focus on architecture and VLSI, and started out studying computer science and math at Carleton College.</p>
+
+  <h2>Interests</h2>
+  <p>Computer architecture, design automation, and lately agentic coding tools. Away from the keyboard: baseball, which I played through college, plus skiing, mountain biking, and climbing high peaks.</p>
+
   <nav>
     <a href="https://www.linkedin.com/in/cameronkbrown/" rel="me">LinkedIn</a>
     <a href="https://github.com/cam-br0wn" rel="me">GitHub</a>
     <a href="mailto:realcambrown@gmail.com">Email</a>
   </nav>
-
-  <section>
-    <h2>About</h2>
-    <p>SoC microarchitect with ownership of the CPU's SPR model. I build and use the in-house tools that turn architectural inputs into a final floorplan and functionally and physically correct RTL, and I supply power, timing, and area data to the SE teams.</p>
-  </section>
-
-  <section>
-    <h2>Experience</h2>
-    <article>
-      <h3>Senior Logic Design Engineer <span>· Ampere Computing</span></h3>
-      <p class="when">April 2026 – present</p>
-      <ul>
-        <li>SoC microarchitect; owner of the CPU's SPR model.</li>
-        <li>Developer and end user of the SoC integration tools. Work with architecture to settle each product's floorplan and provide power, timing, and area data to SE teams.</li>
-        <li>Build full-stack automated pipelines that parse architectural inputs and generate correct RTL.</li>
-      </ul>
-    </article>
-    <article>
-      <h3>Logic Design Engineer <span>· Ampere Computing</span></h3>
-      <p class="when">August 2023 – April 2026</p>
-      <ul>
-        <li>Grew from fundamental CPU logic design into SoC-wide design automation.</li>
-      </ul>
-    </article>
-    <article>
-      <h3>Logic Design Intern <span>· Ampere Computing</span></h3>
-      <p class="when">Summer 2022</p>
-      <ul>
-        <li>Wrote new SystemVerilog RTL in the MMU of Ampere's newest custom core.</li>
-        <li>Analyzed the instruction decoder to reduce logical effort, saving up to 1.5% CPU power.</li>
-        <li>Identified power-intensive events in ULMs across the core and built a pre-synthesis tracker for them.</li>
-      </ul>
-    </article>
-    <article>
-      <h3>Technical Intern, Machine Learning <span>· SAS Institute</span></h3>
-      <p class="when">June 2020 – August 2021</p>
-      <ul>
-        <li>Engineered automated test specifications in Groovy, including the primary smoke test for VDMML used in the promotion pipeline.</li>
-        <li>Automated bug triage for several SAS Viya teams with Python tools that resolved server-side performance issues.</li>
-        <li>Worked daily with Docker, Jenkins, Kubernetes, and CI/CD tooling.</li>
-      </ul>
-    </article>
-  </section>
-
-  <section>
-    <h2>Education</h2>
-    <article>
-      <h3>Northwestern University <span>· McCormick School of Engineering</span></h3>
-      <p class="when">2020 – 2023</p>
-      <ul>
-        <li>MS, Computer Engineering, June 2023. GPA 3.9. Concentration in architecture and VLSI algorithmics.</li>
-        <li>BS, Computer Engineering, June 2022.</li>
-        <li>IEEE member. Club baseball.</li>
-      </ul>
-    </article>
-    <article>
-      <h3>Carleton College <span>· Northfield, MN</span></h3>
-      <p class="when">2018 – 2020</p>
-      <ul>
-        <li>Computer Science and Mathematics.</li>
-        <li>Recruited to varsity baseball, NCAA Division III.</li>
-      </ul>
-    </article>
-  </section>
-
-  <section>
-    <h2>Skills</h2>
-    <p><strong>Expert:</strong> computer architecture, SystemVerilog, Python, Git, Linux, software engineering (OOP, data structures).</p>
-    <p><strong>Experienced:</strong> agentic AI (Claude Code, Codex), C/C++, ARM ISA, Cadence and Synopsys EDA tools, design automation.</p>
-  </section>
-
-  <section>
-    <h2>Beyond work</h2>
-    <p>Collegiate baseball player, and later a Portland Pickle.</p>
-    <p>Alpine and backcountry skiing, mountain biking, and eleven summits above 14,000 feet.</p>
-  </section>
 </main>
-<footer>Cameron K. Brown · <a href="mailto:realcambrown@gmail.com">realcambrown@gmail.com</a></footer>
 </body>
 </html>
