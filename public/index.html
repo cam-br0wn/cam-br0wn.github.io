@@ -6,247 +6,117 @@
 <title>Cameron Brown</title>
 <meta name="description" content="Cameron K. Brown. Senior Logic Design Engineer and SoC microarchitect at Ampere Computing, Portland, Oregon. MS Computer Engineering, Northwestern University.">
 <link rel="canonical" href="https://cambrown.io/">
-<meta property="og:title" content="Cameron Brown">
-<meta property="og:description" content="SoC microarchitect at Ampere Computing. MS Computer Engineering, Northwestern.">
-<meta property="og:url" content="https://cambrown.io/">
-<meta property="og:type" content="profile">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' fill='none' stroke='%231D5C8F' stroke-width='2'/%3E%3Crect x='7' y='7' width='11' height='11' fill='%231D5C8F'/%3E%3Crect x='20' y='7' width='5' height='18' fill='%231D5C8F' fill-opacity='.45'/%3E%3Crect x='7' y='20' width='11' height='5' fill='%231D5C8F' fill-opacity='.45'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="data:,">
 <style>
-:root{
-  --paper:#F5F7F4; --ink:#152220; --muted:#5B6B67; --line:#CBD3CF; --grid:#E3E8E5;
-  --accent:#1D5C8F; --accent-soft:rgba(29,92,143,.12); --accent-mid:rgba(29,92,143,.28);
-  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --paper:#0F1716; --ink:#E6ECE9; --muted:#97A6A1; --line:#2A3734; --grid:#182220;
-    --accent:#7BB6E8; --accent-soft:rgba(123,182,232,.14); --accent-mid:rgba(123,182,232,.32);
-  }
-}
-:root[data-theme="dark"]{
-  --paper:#0F1716; --ink:#E6ECE9; --muted:#97A6A1; --line:#2A3734; --grid:#182220;
-  --accent:#7BB6E8; --accent-soft:rgba(123,182,232,.14); --accent-mid:rgba(123,182,232,.32);
-}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{
-  margin:0; background:var(--paper); color:var(--ink);
-  font-family:"Familjen Grotesk",system-ui,sans-serif; font-size:17px; line-height:1.5;
-  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:32px 32px; background-position:-1px -1px;
-}
-a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-mid)}
-a:hover{border-bottom-color:var(--accent)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-bottom-color:transparent}
-.wrap{max-width:1040px; margin:0 auto; padding:0 16px}
-@media(min-width:720px){.wrap{padding:0 32px}}
-
-/* hero */
-.hero{padding:56px 0 40px; display:grid; gap:40px; align-items:center}
-@media(min-width:860px){.hero{grid-template-columns:1.05fr 1fr; padding:88px 0 64px; gap:56px}}
-h1{font-size:clamp(44px,8vw,80px); line-height:.95; letter-spacing:-.025em; font-weight:700; margin:0 0 20px}
-.role{font-size:clamp(19px,2.4vw,23px); line-height:1.3; margin:0 0 8px; max-width:30ch}
-.where{color:var(--muted); margin:0 0 28px}
-.links{display:flex; flex-wrap:wrap; gap:10px 18px; margin:0; padding:0; list-style:none}
-.links a{display:inline-flex; align-items:center; gap:8px; font-weight:500; padding:8px 0; border-bottom:none}
-.links svg{width:18px; height:18px; fill:currentColor}
-.links a span{border-bottom:1px solid var(--accent-mid)}
-.links a:hover span{border-bottom-color:var(--accent)}
-
-/* floorplan */
-.die{width:100%; max-width:480px; justify-self:center; display:block; font-family:var(--mono); font-size:11px}
-.die .outline{fill:none; stroke:var(--ink); stroke-width:1.5}
-.die .blk{fill:var(--accent-soft); stroke:var(--accent); stroke-width:1; cursor:pointer; transition:fill .15s}
-.die .blk:hover,.die .blk:focus-visible,.die .blk.on{fill:var(--accent-mid); outline:none}
-.die .lab{fill:var(--ink); pointer-events:none; font-weight:500; font-size:13px; font-family:"Familjen Grotesk",system-ui,sans-serif}
-.die .tag{fill:var(--muted); pointer-events:none}
-.die .pad{fill:var(--paper); stroke:var(--accent); stroke-width:1; cursor:pointer}
-.die .pad:hover,.die .pad:focus-visible{fill:var(--accent-mid); outline:none}
-.die .padlab{fill:var(--accent); pointer-events:none}
-.die .ring{fill:none; stroke:var(--line); stroke-dasharray:3 3}
-.die .wire{stroke:var(--accent); stroke-width:1; opacity:.45}
-.die-cap{font-size:13px; color:var(--muted); text-align:center; margin:10px 0 0; max-width:480px; justify-self:center}
-@media(max-width:859px){.die{max-width:400px}}
-
-/* sections */
-main{padding-bottom:96px}
-.sec{border-top:1px solid var(--line); padding:36px 0 44px; display:grid; gap:12px 40px}
-@media(min-width:720px){.sec{grid-template-columns:200px 1fr; padding:44px 0 56px}}
-.sec h2{font-size:17px; font-weight:500; margin:0; color:var(--muted); scroll-margin-top:24px}
-.sec h2 .tag{display:block; font-family:var(--mono); font-size:11px; color:var(--muted); opacity:.75; margin-top:2px}
-.lede{font-size:clamp(20px,2.2vw,24px); line-height:1.4; max-width:36ch; margin:0}
-.body{max-width:66ch}
-.body p{margin:0 0 14px}
-.job{display:grid; gap:4px 24px; margin-bottom:28px}
-@media(min-width:720px){.job{grid-template-columns:132px 1fr}}
-.job .when{color:var(--muted); font-size:15px; padding-top:3px}
-.job h3{font-size:19px; font-weight:700; margin:0 0 2px; line-height:1.3}
-.job h3 small{display:block; font-weight:400; font-size:16px; color:var(--muted); margin-top:2px}
-.job ul{margin:8px 0 0; padding-left:18px}
-.job li{margin-bottom:6px}
-.job li::marker{color:var(--accent)}
-.job:last-child{margin-bottom:0}
-.skills{display:grid; gap:14px 32px; margin:0; max-width:66ch}
-@media(min-width:720px){.skills{grid-template-columns:1fr 1fr}}
-.skills dt{font-weight:500; margin-bottom:4px}
-.skills dd{margin:0; color:var(--muted)}
-footer{border-top:1px solid var(--line); padding:24px 0 48px; color:var(--muted); font-size:14px; display:flex; flex-wrap:wrap; gap:8px 24px; justify-content:space-between}
-footer a{color:var(--muted); border-bottom-color:var(--line)}
-footer a:hover{color:var(--accent)}
-@media(prefers-reduced-motion:reduce){*{transition:none!important} html{scroll-behavior:auto}}
-html{scroll-behavior:smooth}
+:root{--bg:#fff;--ink:#1a1a1a;--muted:#666;--line:#e3e3e3;--link:#1d5c8f}
+@media(prefers-color-scheme:dark){:root{--bg:#121414;--ink:#e8eae9;--muted:#9aa29f;--line:#2b3130;--link:#7bb6e8}}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+main{max-width:680px;margin:0 auto;padding:56px 20px 72px}
+h1{font-size:34px;line-height:1.15;margin:0 0 6px;letter-spacing:-.01em}
+.role{margin:0 0 4px;font-size:19px}
+.where{margin:0 0 18px;color:var(--muted)}
+nav a{margin-right:18px}
+a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--line)}
+a:hover{border-bottom-color:var(--link)}
+section{border-top:1px solid var(--line);margin-top:36px;padding-top:28px}
+h2{font-size:15px;font-weight:600;color:var(--muted);margin:0 0 16px}
+h3{font-size:17px;margin:0;line-height:1.35}
+h3 span{font-weight:400;color:var(--muted)}
+.when{font-size:14px;color:var(--muted);margin:2px 0 6px}
+ul{margin:0 0 22px;padding-left:20px}
+li{margin-bottom:5px}
+article:last-child ul{margin-bottom:0}
+p{margin:0 0 10px}
+footer{max-width:680px;margin:0 auto;padding:0 20px 48px;font-size:14px;color:var(--muted)}
 </style>
 </head>
 <body>
-<div class="wrap">
-
-<header class="hero">
-  <div>
-    <h1>Cameron<br>Brown</h1>
-    <p class="role">SoC microarchitect and Senior Logic Design Engineer at Ampere Computing.</p>
-    <p class="where">Portland, Oregon</p>
-    <ul class="links">
-      <li><a href="https://www.linkedin.com/in/cameronkbrown/" rel="me"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg><span>LinkedIn</span></a></li>
-      <li><a href="https://github.com/cam-br0wn" rel="me"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg><span>GitHub</span></a></li>
-      <li><a href="mailto:realcambrown@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm1 3.2V18h18V7.2l-9 6-9-6zM3.6 6l8.4 5.6L20.4 6H3.6z"/></svg><span>Email</span></a></li>
-    </ul>
-  </div>
-
-  <div>
-    <svg class="die" viewBox="0 0 400 400" role="group" aria-label="Site map drawn as a chip floorplan. Each block links to a section.">
-      <rect class="ring" x="8" y="8" width="384" height="384"/>
-      <rect class="outline" x="24" y="24" width="352" height="352"/>
-      <!-- IO pads on right edge -->
-      <g class="wire"><line x1="333" y1="86" x2="358" y2="86"/><line x1="333" y1="146" x2="358" y2="146"/><line x1="333" y1="206" x2="358" y2="206"/></g>
-      <a href="https://www.linkedin.com/in/cameronkbrown/"><rect class="pad" x="358" y="70" width="18" height="32"/><text class="padlab" x="367" y="112" transform="rotate(90 367 112)" text-anchor="start">LinkedIn</text></a>
-      <a href="https://github.com/cam-br0wn"><rect class="pad" x="358" y="130" width="18" height="32"/><text class="padlab" x="367" y="172" transform="rotate(90 367 172)" text-anchor="start">GitHub</text></a>
-      <a href="mailto:realcambrown@gmail.com"><rect class="pad" x="358" y="190" width="18" height="32"/><text class="padlab" x="367" y="232" transform="rotate(90 367 232)" text-anchor="start">Email</text></a>
-      <!-- blocks -->
-      <a href="#experience" data-sec="experience"><rect class="blk" x="40" y="40" width="200" height="200"/><text class="lab" x="52" y="62">Experience</text><text class="tag" x="52" y="78">CORE</text></a>
-      <a href="#education" data-sec="education"><rect class="blk" x="252" y="40" width="81" height="200"/><text class="lab" x="264" y="62">Education</text><text class="tag" x="264" y="78">MEM</text></a>
-      <a href="#skills" data-sec="skills"><rect class="blk" x="40" y="252" width="140" height="108"/><text class="lab" x="52" y="274">Skills</text><text class="tag" x="52" y="290">IO</text></a>
-      <a href="#beyond" data-sec="beyond"><rect class="blk" x="192" y="252" width="141" height="108"/><text class="lab" x="204" y="274">Off the clock</text><text class="tag" x="204" y="290">PHY</text></a>
-      <text class="tag" x="40" y="372">cambrown.io  ·  rev 2026.10</text>
-    </svg>
-    <p class="die-cap">The page, as a floorplan. Click a block to jump.</p>
-  </div>
-</header>
-
 <main>
-  <section class="sec" id="about">
+  <h1>Cameron K. Brown</h1>
+  <p class="role">Senior Logic Design Engineer, Ampere Computing</p>
+  <p class="where">Portland, Oregon</p>
+  <nav>
+    <a href="https://www.linkedin.com/in/cameronkbrown/" rel="me">LinkedIn</a>
+    <a href="https://github.com/cam-br0wn" rel="me">GitHub</a>
+    <a href="mailto:realcambrown@gmail.com">Email</a>
+  </nav>
+
+  <section>
     <h2>About</h2>
-    <p class="lede">I design the tools that turn architectural intent into a floorplan and correct RTL, and I own the CPU's SPR model.</p>
+    <p>SoC microarchitect with ownership of the CPU's SPR model. I build and use the in-house tools that turn architectural inputs into a final floorplan and functionally and physically correct RTL, and I supply power, timing, and area data to the SE teams.</p>
   </section>
 
-  <section class="sec" id="experience">
-    <h2>Experience<span class="tag">CORE</span></h2>
-    <div class="body">
-      <div class="job">
-        <div class="when">Apr 2026 – present</div>
-        <div>
-          <h3>Senior Logic Design Engineer<small>Ampere Computing</small></h3>
-          <ul>
-            <li>SoC microarchitect, with ownership of the CPU's SPR model.</li>
-            <li>Developer and end user of the in-house SoC integration tools. Work with architecture to settle the final floorplan for each product, and supply power, timing, and area data to the SE teams.</li>
-            <li>Build full-stack automated pipelines that parse architectural inputs and generate functionally and physically correct RTL.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="job">
-        <div class="when">Aug 2023 – Apr 2026</div>
-        <div>
-          <h3>Logic Design Engineer<small>Ampere Computing</small></h3>
-          <ul>
-            <li>Grew from fundamental CPU logic design into design automation across the SoC.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="job">
-        <div class="when">Summer 2022</div>
-        <div>
-          <h3>Logic Design Intern<small>Ampere Computing</small></h3>
-          <ul>
-            <li>Wrote new SystemVerilog RTL in the MMU of Ampere's newest custom core.</li>
-            <li>Analyzed the instruction decoder with the team to reduce logical effort, saving up to 1.5% of CPU power.</li>
-            <li>Worked across the core to identify power-intensive events in ULMs and built a pre-synthesis tracker for them.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="job">
-        <div class="when">Jun 2020 – Aug 2021</div>
-        <div>
-          <h3>Technical Intern, Machine Learning<small>SAS Institute</small></h3>
-          <ul>
-            <li>Engineered automated test specifications in Groovy, including the primary smoke test for VDMML that runs on every push through the promotion pipeline.</li>
-            <li>Automated bug triage for several SAS Viya teams with a suite of Python tools that resolved server-side performance issues.</li>
-            <li>Day-to-day work with Docker, Jenkins, Kubernetes, and the rest of the CI/CD stack.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+  <section>
+    <h2>Experience</h2>
+    <article>
+      <h3>Senior Logic Design Engineer <span>· Ampere Computing</span></h3>
+      <p class="when">April 2026 – present</p>
+      <ul>
+        <li>SoC microarchitect; owner of the CPU's SPR model.</li>
+        <li>Developer and end user of the SoC integration tools. Work with architecture to settle each product's floorplan and provide power, timing, and area data to SE teams.</li>
+        <li>Build full-stack automated pipelines that parse architectural inputs and generate correct RTL.</li>
+      </ul>
+    </article>
+    <article>
+      <h3>Logic Design Engineer <span>· Ampere Computing</span></h3>
+      <p class="when">August 2023 – April 2026</p>
+      <ul>
+        <li>Grew from fundamental CPU logic design into SoC-wide design automation.</li>
+      </ul>
+    </article>
+    <article>
+      <h3>Logic Design Intern <span>· Ampere Computing</span></h3>
+      <p class="when">Summer 2022</p>
+      <ul>
+        <li>Wrote new SystemVerilog RTL in the MMU of Ampere's newest custom core.</li>
+        <li>Analyzed the instruction decoder to reduce logical effort, saving up to 1.5% CPU power.</li>
+        <li>Identified power-intensive events in ULMs across the core and built a pre-synthesis tracker for them.</li>
+      </ul>
+    </article>
+    <article>
+      <h3>Technical Intern, Machine Learning <span>· SAS Institute</span></h3>
+      <p class="when">June 2020 – August 2021</p>
+      <ul>
+        <li>Engineered automated test specifications in Groovy, including the primary smoke test for VDMML used in the promotion pipeline.</li>
+        <li>Automated bug triage for several SAS Viya teams with Python tools that resolved server-side performance issues.</li>
+        <li>Worked daily with Docker, Jenkins, Kubernetes, and CI/CD tooling.</li>
+      </ul>
+    </article>
   </section>
 
-  <section class="sec" id="education">
-    <h2>Education<span class="tag">MEM</span></h2>
-    <div class="body">
-      <div class="job">
-        <div class="when">2020 – 2023</div>
-        <div>
-          <h3>Northwestern University<small>McCormick School of Engineering and Applied Science</small></h3>
-          <ul>
-            <li>MS, Computer Engineering, June 2023. GPA 3.9. Concentration in architecture and VLSI algorithmics.</li>
-            <li>BS, Computer Engineering, June 2022.</li>
-            <li>IEEE member. Club baseball.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="job">
-        <div class="when">2018 – 2020</div>
-        <div>
-          <h3>Carleton College<small>Northfield, Minnesota</small></h3>
-          <ul>
-            <li>Computer Science and Mathematics.</li>
-            <li>Recruited out of high school to varsity baseball, NCAA Division III.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+  <section>
+    <h2>Education</h2>
+    <article>
+      <h3>Northwestern University <span>· McCormick School of Engineering</span></h3>
+      <p class="when">2020 – 2023</p>
+      <ul>
+        <li>MS, Computer Engineering, June 2023. GPA 3.9. Concentration in architecture and VLSI algorithmics.</li>
+        <li>BS, Computer Engineering, June 2022.</li>
+        <li>IEEE member. Club baseball.</li>
+      </ul>
+    </article>
+    <article>
+      <h3>Carleton College <span>· Northfield, MN</span></h3>
+      <p class="when">2018 – 2020</p>
+      <ul>
+        <li>Computer Science and Mathematics.</li>
+        <li>Recruited to varsity baseball, NCAA Division III.</li>
+      </ul>
+    </article>
   </section>
 
-  <section class="sec" id="skills">
-    <h2>Skills<span class="tag">IO</span></h2>
-    <dl class="skills">
-      <div><dt>Expert</dt><dd>Computer architecture, SystemVerilog, Python, Git, Linux, software engineering (OOP, data structures)</dd></div>
-      <div><dt>Experienced</dt><dd>Agentic AI (Claude Code, Codex), C/C++, ARM ISA, Cadence and Synopsys EDA tools, design automation</dd></div>
-    </dl>
+  <section>
+    <h2>Skills</h2>
+    <p><strong>Expert:</strong> computer architecture, SystemVerilog, Python, Git, Linux, software engineering (OOP, data structures).</p>
+    <p><strong>Experienced:</strong> agentic AI (Claude Code, Codex), C/C++, ARM ISA, Cadence and Synopsys EDA tools, design automation.</p>
   </section>
 
-  <section class="sec" id="beyond">
-    <h2>Off the clock<span class="tag">PHY</span></h2>
-    <div class="body">
-      <p>Collegiate baseball player, and later a Portland Pickle.</p>
-      <p>Alpine and backcountry skiing, mountain biking, and eleven summits above 14,000 feet.</p>
-    </div>
+  <section>
+    <h2>Beyond work</h2>
+    <p>Collegiate baseball player, and later a Portland Pickle.</p>
+    <p>Alpine and backcountry skiing, mountain biking, and eleven summits above 14,000 feet.</p>
   </section>
 </main>
-
-<footer>
-  <span>Cameron K. Brown</span>
-  <span><a href="https://www.linkedin.com/in/cameronkbrown/">LinkedIn</a> &nbsp; <a href="https://github.com/cam-br0wn">GitHub</a> &nbsp; <a href="mailto:realcambrown@gmail.com">realcambrown@gmail.com</a></span>
-</footer>
-
-</div>
-<script>
-// Highlight the floorplan block for the section currently in view.
-(function(){
-  var blocks={};document.querySelectorAll('.die a[data-sec]').forEach(function(a){blocks[a.dataset.sec]=a.querySelector('.blk');});
-  if(!('IntersectionObserver' in window))return;
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){var b=blocks[e.target.id];if(b)b.classList.toggle('on',e.isIntersecting);});},{rootMargin:'-20% 0px -60% 0px'});
-  Object.keys(blocks).forEach(function(id){var s=document.getElementById(id);if(s)io.observe(s);});
-})();
-</script>
+<footer>Cameron K. Brown · <a href="mailto:realcambrown@gmail.com">realcambrown@gmail.com</a></footer>
 </body>
 </html>
